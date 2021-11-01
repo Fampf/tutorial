@@ -3,7 +3,50 @@ This exercise is from: https://lerneprogrammieren.de/git/
 Mit nachfolgendem Befehl wird das lokale repo mit einem remote repo verknüpft.
 fampf ist der Name des "workspace" in dem öffentlichen github; tutorial.git ist der Name des repos, das man dort manuell angelegt hat.
 Der Zusatz .git wäre nicht notwendig
+
 git remote add origin https://github.com/Fampf/tutorial.git
 
 Um obigen Befehl durchführen zu können muss man sich authentisieren.
 Dafür ist ist mittlerweile ein token notwendig. Den kann man sich im github mit unterschiedlichen Gültigkeitszeiträumen erstellen (default 30 Tage). Man sollte sich den token dann lokal speichern. Er wird bei den Aktionen dann abgefragt (man kann ihn auch in einem "safe" ablegen, z.B. im eclipse)
+
+origin ist ein alias für das remote repo (kann beliebig benannt werden). Beim push, pull oder anderen Befehlen kann man dann diesen alias nutzen
+
+git push origin master 
+
+git fetch origin master
+Holt die Änderungen des master-branch aus dem remote repo mit alias origin:
+Console-Ausgabe:
+remote: Enumerating objects: 4, done.
+remote: Counting objects: 100% (4/4), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), 725 bytes | 725.00 KiB/s, done.
+From https://github.com/Fampf/tutorial
+ * branch            master     -> FETCH_HEAD
+   91743e0..f4a3587  master     -> origin/master
+
+git log origin/master
+Zeigt welche Änderungen erfolgt sind (Neueste zuerst)
+commit f4a3587e2c31392995a89d3e9841bd22a5992ca5 (origin/master)
+Author: Fampf <83717606+Fampf@users.noreply.github.com>
+Date:   Mon Nov 1 14:57:51 2021 +0100
+
+    Create secondFile.txt
+
+commit 91743e01b132759c40f43230322a33caaadc1d5d (HEAD -> master)
+Author: fampf <fampf@web.de>
+Date:   Mon Nov 1 14:50:35 2021 +0100
+
+    add text to lerneProgrammieren.txt
+
+commit 228e7eba3db5ffbc445999ce1b3703bb5119c8a5
+Author: fampf <fampf@web.de>
+Date:   Mon Nov 1 13:39:22 2021 +0100
+
+    first commit
+
+git merge origin/master
+merged die Änderungen in das lokale repo
+
+git pull origin master
+holt Änderung aus origin und fügt sie in das lokale repo ein
