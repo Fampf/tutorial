@@ -1,1 +1,9 @@
 This exercise is from: https://lerneprogrammieren.de/git/
+
+Mit nachfolgendem Befehl wird das lokale repo mit einem remote repo verknüpft.
+fampf ist der Name des "workspace" in dem öffentlichen github; tutorial.git ist der Name des repos, das man dort manuell angelegt hat.
+Der Zusatz .git wäre nicht notwendig
+git remote add origin https://github.com/Fampf/tutorial.git
+
+Um obigen Befehl durchführen zu können muss man sich authentisieren.
+Dafür ist ist mittlerweile ein token notwendig. Den kann man sich im github mit unterschiedlichen Gültigkeitszeiträumen erstellen (default 30 Tage). Man sollte sich den token dann lokal speichern. Er wird bei den Aktionen dann abgefragt (man kann ihn auch in einem "safe" ablegen, z.B. im eclipse)
